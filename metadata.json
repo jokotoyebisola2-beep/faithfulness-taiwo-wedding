@@ -1,0 +1,6 @@
+{
+  "name": "Faithfulness & Taiwo Wedding Invitation",
+  "description": "Digital wedding invitation website and guest RSVP for Faithfulness & Taiwo, 24 October 2026.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

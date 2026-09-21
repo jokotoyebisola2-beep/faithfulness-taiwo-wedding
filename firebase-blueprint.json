@@ -1,0 +1,46 @@
+{
+  "entities": {
+    "weddingContent": {
+      "title": "WeddingContent",
+      "description": "Content and configuration for Faithfulness & Taiwo wedding invitation website",
+      "type": "object",
+      "properties": {
+        "hero": { "type": "object" },
+        "invitation": { "type": "object" },
+        "weddingDay": { "type": "object" },
+        "countdown": { "type": "object" },
+        "moments": { "type": "object" },
+        "dressCode": { "type": "object" },
+        "rsvpSettings": { "type": "object" },
+        "giftInfo": { "type": "object" },
+        "closing": { "type": "object" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["hero", "invitation", "weddingDay", "countdown", "moments", "dressCode", "rsvpSettings", "giftInfo", "closing"]
+    },
+    "rsvpSubmission": {
+      "title": "RsvpSubmission",
+      "description": "Guest RSVP submission for the wedding celebration",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "attendance": { "type": "string", "enum": ["yes", "no"] },
+        "guestCount": { "type": "number" },
+        "message": { "type": "string", "maxLength": 500 },
+        "phone": { "type": "string", "maxLength": 50 },
+        "submittedAt": { "type": "string" }
+      },
+      "required": ["name", "attendance", "guestCount", "submittedAt"]
+    }
+  },
+  "firestore": {
+    "/wedding/{docId}": {
+      "schema": { "$ref": "#/entities/weddingContent" },
+      "description": "Single document holding the wedding content and section configs"
+    },
+    "/rsvps/{rsvpId}": {
+      "schema": { "$ref": "#/entities/rsvpSubmission" },
+      "description": "Public guest RSVP submissions"
+    }
+  }
+}
